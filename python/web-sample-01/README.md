@@ -37,5 +37,6 @@ docker exec -it codelabo-python-websample01 /bin/bash
 
 ```
 docker stop codelabo-python-websample01 && \
-docker rm -f codelabo-python-websample01
+docker rm -f codelabo-python-websample01 && \
+docker rmi codelabo-python-websample01
 ```
