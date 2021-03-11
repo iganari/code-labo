@@ -2,46 +2,40 @@
 
 ## Docker コンテナを用いて開発する時
 
+```
+cd code-labo/python/web-sample
+```
+
 + コンテナの作成
 
 ```
-docker build . --tag handson-gke-10-py-local
+docker build . --tag codelabo-python-websample01
 ```
 
-+ 起動
++ コンテナをデーモン起動
 
 ```
 docker run \
-    --rm \
-    -it \
+    -d \
     -p 8080:5000 \
     -v $(pwd):/app \
-    --name local-py \
-    handson-gke-10-py-local \
-    /bin/bash
-```
-
-+ コンテナにログイン ---> :whale:
-
-```
-docker exec -it local-py /bin/bash
-```
-
-+ :whale: Python の起動
-
-```
-python3 /app/main.py
+    --name codelabo-python-websample01 \
+    codelabo-python-websample01
 ```
 
 + Web ブラウザから確認
 
 http://0.0.0.0:8080
 
-
-+ コンテナの作り直し
++ [debug] コンテナにログイン ---> :whale:
 
 ```
-docker stop local-py && \
-docker rm -f local-py
+docker exec -it codelabo-python-websample01 /bin/bash
 ```
 
++ コンテナの作り直し OR 削除
+
+```
+docker stop codelabo-python-websample01 && \
+docker rm -f codelabo-python-websample01
+```
