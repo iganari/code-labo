@@ -8,14 +8,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    msg ='Your URL is "{}" .\nFrom Hands On GKE.\nHostName: {}\nIP: {}\nCurrent time: {}\n'.format(request.url, host_name, host_ip, current_time) 
+    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\n'.format(request.url, host_name, host_ip, current_time) 
 
     return msg 
 
 
 @app.route('/<mypath>')
 def show_path(mypath):
-    msg ='Your URL is "{}" .\nFrom Hands On GKE.\nHostName: {}\nIP: {}\nCurrent time: {}\n'.format(request.url, host_name, host_ip, current_time) 
+    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\n'.format(request.url, host_name, host_ip, current_time) 
 
     return msg 
 

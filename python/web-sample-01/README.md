@@ -1,9 +1,9 @@
-# Python
+# Web Sample 01
 
 ## Docker コンテナを用いて開発する時
 
 ```
-cd code-labo/python/web-sample
+cd code-labo/python/web-sample-01
 ```
 
 + コンテナの作成
