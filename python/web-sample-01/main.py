@@ -30,4 +30,5 @@ if __name__ == "__main__":
     host_ip      = socket.gethostbyname(host_name)
     current_time = datetime.datetime.now()
 
-    app.run(host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5000)
+    
