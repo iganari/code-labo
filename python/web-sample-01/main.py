@@ -12,6 +12,11 @@ def hello():
 
     return msg 
 
+@app.route("/healthz")
+def healthcheak():
+    msg ='This is Health Cheak Page.' 
+
+    return msg
 
 @app.route('/<mypath>')
 def show_path(mypath):
