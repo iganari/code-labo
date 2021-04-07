@@ -16,11 +16,11 @@ docker build . --tag codelabo-python-websample01
 
 ```
 docker run \
-    -d \
-    -p 8080:5000 \
-    -v $(pwd):/app \
-    --name codelabo-python-websample01 \
-    codelabo-python-websample01
+  -d \
+  -p 8080:5000 \
+  -v $(pwd):/app \
+  --name codelabo-python-websample01 \
+  codelabo-python-websample01
 ```
 
 + Web ブラウザから確認

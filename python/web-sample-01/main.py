@@ -3,12 +3,13 @@
 from flask import Flask, request
 import socket
 import datetime
+import os
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\n'.format(request.url, host_name, host_ip, current_time) 
+    msg ='Your URL is "{}" .\nHello World!! :)'.format(request.url) 
 
     return msg 
 
@@ -20,7 +21,9 @@ def healthcheak():
 
 @app.route('/<mypath>')
 def show_path(mypath):
-    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\n'.format(request.url, host_name, host_ip, current_time) 
+    your_environ = os.environ
+    # your_environ = os.environ['PATH']
+    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\nYour Env: {}'.format(request.url, host_name, host_ip, current_time, your_environ) 
 
     return msg 
 
