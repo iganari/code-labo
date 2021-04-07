@@ -40,3 +40,10 @@ docker stop codelabo-python-websample01 && \
 docker rm -f codelabo-python-websample01 && \
 docker rmi codelabo-python-websample01
 ```
+
+
+## 以下、めも
+
+render の参考
+
+https://qiita.com/zaburo/items/5091041a5afb2a7dffc8

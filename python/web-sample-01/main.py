@@ -1,6 +1,6 @@
 # https://github.com/JasonHaley/hello-python/tree/master/app
 
-from flask import Flask, request
+from flask import Flask, request, render_template
 import socket
 import datetime
 import os
@@ -18,6 +18,17 @@ def healthcheak():
     msg ='This is Health Cheak Page.' 
 
     return msg
+
+# QueryString
+@app.route("/qs")
+def param():
+    name = request.args.get('name')
+    age  = request.args.get('age')
+    msg  ='Your URL is "{}" .\nname: {}\nage: '.format(request.url, name, age)
+
+    # return msg
+    return render_template('hello2.html', name=name)
+
 
 @app.route('/<mypath>')
 def show_path(mypath):
