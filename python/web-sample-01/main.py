@@ -1,30 +1,28 @@
 # https://github.com/JasonHaley/hello-python/tree/master/app
 
-from flask import Flask, request
+from flask import Flask, request, Response
 import socket
 import datetime
 import os
+import json
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    msg ='Your URL is "{}" .\nHello World!! :)'.format(request.url) 
-
+    msg ='Your URL is "{}" .\nHello World!! :)'.format(request.url)
     return msg 
+
 
 @app.route("/healthz")
 def healthcheak():
-    msg ='This is Health Cheak Page.' 
+    return Response(response=json.dumps({'message': 'health check page'}), status=200)
 
-    return msg
 
 @app.route('/<mypath>')
 def show_path(mypath):
-    your_environ = os.environ
-    # your_environ = os.environ['PATH']
-    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\nYour Env: {}'.format(request.url, host_name, host_ip, current_time, your_environ) 
-
+    my_environ = os.environ
+    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\nYour Env: {}'.format(request.url, host_name, host_ip, current_time, my_environ)
     return msg 
 
 

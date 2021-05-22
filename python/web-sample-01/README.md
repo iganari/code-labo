@@ -27,6 +27,16 @@ docker run \
 
 http://0.0.0.0:8080
 
+![](./01.png)
+
+http://0.0.0.0:8080/healthz
+
+![](./02.png)
+
+http://0.0.0.0:8080/hogehoge
+
+![](./03.png)
+
 + [debug] コンテナにログイン ---> :whale:
 
 ```
