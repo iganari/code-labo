@@ -1,4 +1,4 @@
-# Web Sample 01
+# Web Sample all
 
 ## Docker コンテナを用いて開発する時
 

@@ -22,14 +22,15 @@ def healthcheak():
 @app.route('/<mypath>')
 def show_path(mypath):
     my_environ = os.environ
-    msg ='Your URL is "{}" .\nHostName: {}\nIP: {}\nCurrent time: {}\nYour Env: {}'.format(request.url, host_name, host_ip, current_time, my_environ)
+    ex_remote_addr = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+    msg ='Your URL is "{}" .\nHostName: {}\nHost IP: {}\nRemote IP Address: {}\nCurrent time: {}\nYour Env: {}'.format(request.url, host_name, host_ip, ex_remote_addr,current_time, my_environ)
     return msg 
 
 
 if __name__ == "__main__":
-    host_name    = socket.gethostname()
-    host_ip      = socket.gethostbyname(host_name)
-    current_time = datetime.datetime.now()
+    host_name      = socket.gethostname()
+    host_ip        = socket.gethostbyname(host_name)
+    current_time   = datetime.datetime.now()
 
     app.run(debug=True, host='0.0.0.0', port=5000)
     
