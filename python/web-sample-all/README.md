@@ -3,13 +3,13 @@
 ## Docker コンテナを用いて開発する時
 
 ```
-cd code-labo/python/web-sample-01
+cd code-labo/python/web-sample-all
 ```
 
 + コンテナの作成
 
 ```
-docker build . --tag codelabo-python-websample01
+docker build . --tag codelabo-py-websampleall
 ```
 
 + コンテナをデーモン起動
@@ -19,8 +19,8 @@ docker run \
   -d \
   -p 8080:5000 \
   -v $(pwd):/app \
-  --name codelabo-python-websample01 \
-  codelabo-python-websample01
+  --name codelabo-py-websampleall \
+  codelabo-py-websampleall
 ```
 
 + Web ブラウザから確認
@@ -40,13 +40,13 @@ http://0.0.0.0:8080/hogehoge
 + [debug] コンテナにログイン ---> :whale:
 
 ```
-docker exec -it codelabo-python-websample01 /bin/bash
+docker exec -it codelabo-py-websampleall /bin/bash
 ```
 
 + コンテナの作り直し OR 削除
 
 ```
-docker stop codelabo-python-websample01 && \
-docker rm -f codelabo-python-websample01 && \
-docker rmi codelabo-python-websample01
+docker stop codelabo-py-websampleall && \
+docker rm -f codelabo-py-websampleall && \
+docker rmi codelabo-py-websampleall
 ```
