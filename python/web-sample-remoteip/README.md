@@ -1,9 +1,9 @@
-# Web Sample 01
+# Web Sample Remote IP
 
 ## Docker コンテナを用いて開発する時
 
 ```
-cd code-labo/python/web-sample-01
+cd code-labo/python/web-sample-remoteip
 ```
 
 + コンテナの作成
