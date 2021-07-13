@@ -1,4 +1,4 @@
-# Web Sample all
+# Python: Web Sample all
 
 ## Docker コンテナを用いて開発する時
 
