@@ -1,4 +1,4 @@
-# code-labo
+# Code Labo
 
 ## 概要
 
