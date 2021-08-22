@@ -9,11 +9,15 @@
 
 ## サンプル
 
-### [Python](./python)
+### [nginx](./nginx)
 
-+ [Web Sample all](./web-sample-all)
-+ [Web Sample Remote IP](./web-sample-remoteip)
++ [stream module](./nginx/stream)
 
 ### [PHP](./php)
 
-+ [Web Sample 01](./web-sample-01)
++ [Web Sample 01](./php/web-sample-01)
+
+### [Python](./python)
+
++ [Web Sample all](./python/web-sample-all)
++ [Web Sample Remote IP](./python/web-sample-remoteip)

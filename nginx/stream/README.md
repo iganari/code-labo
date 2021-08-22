@@ -1,4 +1,4 @@
-# stream
+# stream module
 
 ## 概要
 
