@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   web:
-    container_name: web
-    build: ./docker/web
+    container_name: codelab-vue-init
+    build: ./web
     ports:
       - 9000:9000
     privileged: true
     volumes:
-      - ./server:/app
+      - ./content:/app
     tty: true
     stdin_open: true
-    command: /bin/sh
+    # command: /bin/sh
