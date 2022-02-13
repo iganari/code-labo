@@ -27,7 +27,7 @@ docker run \
 
 http://0.0.0.0:8080
 
-WIP
+![](./01.gif)
 
 + [debug] コンテナにログイン ---> :whale:
 
