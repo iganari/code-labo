@@ -148,6 +148,8 @@ mysqldump -uroot -p${_mysql_root_passwd} large_volume > large_volume.sql
 
 ## さらに増やす
 
++ table 内のレコードを同 table にコピーする
+
 ```
 ### 1G -> 2G
 mysql -uroot -p${_mysql_root_passwd} large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
