@@ -12,6 +12,7 @@ cd code-labo/mysql/large-volume
 
 ## Docker Compose で起動
 
++ Docker Compose 起動
 
 ```
 docker-compose up -d --build
@@ -58,7 +59,7 @@ du -h 100MB.png
 mysql -uroot -p
 ```
 
-+ 確認
++ `secure_file_priv` の確認
 
 ```
 SHOW VARIABLES LIKE 'secure_file_priv';
@@ -75,13 +76,18 @@ mysql> SHOW VARIABLES LIKE 'secure_file_priv';
 1 row in set (0.01 sec)
 
 ```
+
++ `max_allowed_packet` の確認
+
 ```
-show variables like 'max_allowed_packet';
+## mysql
+
+SHOW VARIABLES like 'max_allowed_packet';
 ```
 ```
 ### 例
 
-mysql> show variables like 'max_allowed_packet';
+mysql> SHOW VARIABLES like 'max_allowed_packet';
 +--------------------+-----------+
 | Variable_name      | Value     |
 +--------------------+-----------+
@@ -91,28 +97,32 @@ mysql> show variables like 'max_allowed_packet';
 
 ```
 
-
-
-
-
 + 諸々作成
 
 ```
+## mysql
+
 CREATE DATABASE large_volume;
 USE large_volume;
 ```
 
 ```
+## mysql
+
 CREATE TABLE images (id int not null primary key auto_increment , image LONGBLOB);
 ```
 
 ```
+## mysql
+
 INSERT images values(0, LOAD_FILE('/mnt/100MB.png'));
 ```
 
-もしくは `-c` を使ってみる( 0123456789abcd )
++ もしくは `-c` を使ってみる( 0123456789abcd )
 
 ```
+## Bash
+
 mysql -uroot -p0123456789abcd large_volume -e "INSERT images values(0, LOAD_FILE('/mnt/100MB.png'));"
 ```
 
@@ -121,7 +131,10 @@ mysql -uroot -p0123456789abcd large_volume -e "INSERT images values(0, LOAD_FILE
 ## 抽出
 
 ```
-mysqldump -uroot -p0123456789abcd large_volume > large_volume.sql
+export _mysql_root_passwd=$(cat docker-compose.yml | grep MYSQL_ROOT_PASSWORD | awk -F\: '{print $2}' | sed 's/\ //g')
+```
+```
+mysqldump -uroot -p${_mysql_root_passwd} large_volume > large_volume.sql
 ```
 ```
 # du -h large_volume.sql 
@@ -132,24 +145,22 @@ mysqldump -uroot -p0123456789abcd large_volume > large_volume.sql
 
 ```
 ### 1G -> 2G
-mysql -uroot -p0123456789abcd large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
+mysql -uroot -p${_mysql_root_passwd} large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
 
 ### 2G -> 4G
-mysql -uroot -p0123456789abcd large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
+mysql -uroot -p${_mysql_root_passwd} large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
 
 ### 4G -> 8G
-mysql -uroot -p0123456789abcd large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
+mysql -uroot -p${_mysql_root_passwd} large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
 ```
 
 ```
-mysqldump -uroot -p0123456789abcd large_volume > large_volume.sql
+mysqldump -uroot -p${_mysql_root_passwd} large_volume > large_volume.sql
 ```
 ```
 # du -h large_volume.sql 
 7.9G    large_volume.sql
 ```
-
-
 
 ## 削除
 
