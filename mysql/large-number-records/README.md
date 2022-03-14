@@ -89,6 +89,8 @@ INSERT INTO city SELECT 0, Name, CountryCode, District, Population FROM city;
 ---> 4079 * 2 = 8158 になるはず
 ```
 ```
+### 例
+
 mysql> SELECT count(ID) from city;
 +-----------+
 | count(ID) |
@@ -96,6 +98,8 @@ mysql> SELECT count(ID) from city;
 |      8158 |
 +-----------+
 1 row in set (0.00 sec)
+
+---> 意図通りの数値になった :)
 ```
 
 + どんどん増やしていく
@@ -139,6 +143,8 @@ Bye
 ```
 
 ## 抽出
+
++ mysqldump を用いて、抽出する
 
 ```
 mysqldump -uroot -p world > world-large-number-records.sql
