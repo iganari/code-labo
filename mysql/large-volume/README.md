@@ -161,6 +161,8 @@ mysql -uroot -p${_mysql_root_passwd} large_volume -e "INSERT INTO images SELECT 
 mysql -uroot -p${_mysql_root_passwd} large_volume -e "INSERT INTO images SELECT 0, image FROM images;"
 ```
 
++ データを抽出してみる
+
 ```
 mysqldump -uroot -p${_mysql_root_passwd} large_volume > large_volume.sql
 ```
