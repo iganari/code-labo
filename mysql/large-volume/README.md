@@ -118,12 +118,12 @@ CREATE TABLE images (id int not null primary key auto_increment , image LONGBLOB
 INSERT images values(0, LOAD_FILE('/mnt/100MB.png'));
 ```
 
-+ もしくは `-c` を使ってみる( 0123456789abcd )
++ もしくは `-c` を使ってみる
 
 ```
 ## Bash
 
-mysql -uroot -p0123456789abcd large_volume -e "INSERT images values(0, LOAD_FILE('/mnt/100MB.png'));"
+mysql -uroot -p large_volume -e "INSERT images values(0, LOAD_FILE('/mnt/100MB.png'));"
 ```
 
 ---> これでも出来るはず。これを何回かやり直す
