@@ -1,20 +1,8 @@
-# show databases;
-# 
-# use world;
-# # SHOW tables;
-# # DESC city;
-# INSERT INTO city SELECT 0, Name, CountryCode, District, Population FROM city;
-# SELECT count(ID) from city;
-# 
-# use world_x;
-# # SHOW tables;
-# # DESC city;
-# INSERT INTO city SELECT 0, Name, CountryCode, District, Info FROM city;
-# SELECT count(ID) from city;
-
+## データベース作成
+CREATE DATABASE large_volume;
 
 ## カラム作成
-# WIP
+CREATE TABLE images (id int not null primary key auto_increment , image LONGBLOB);
 
 ## データ挿入
 # WIP

@@ -1,4 +1,4 @@
-# large number of records
+# large volume
 
 ## 概要
 
@@ -98,12 +98,12 @@ mysql> show variables like 'max_allowed_packet';
 + 諸々作成
 
 ```
-create database large_volume;
-use large_volume;
+CREATE DATABASE large_volume;
+USE large_volume;
 ```
 
 ```
-create table images (id int not null primary key auto_increment , image LONGBLOB);
+CREATE TABLE images (id int not null primary key auto_increment , image LONGBLOB);
 ```
 
 ```
