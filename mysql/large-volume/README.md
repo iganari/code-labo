@@ -130,9 +130,14 @@ mysql -uroot -p0123456789abcd large_volume -e "INSERT images values(0, LOAD_FILE
 
 ## 抽出
 
++ 環境変数にいれる
+
 ```
 export _mysql_root_passwd=$(cat docker-compose.yml | grep MYSQL_ROOT_PASSWORD | awk -F\: '{print $2}' | sed 's/\ //g')
 ```
+
++ mysqldump してデータを出してみる
+
 ```
 mysqldump -uroot -p${_mysql_root_passwd} large_volume > large_volume.sql
 ```
