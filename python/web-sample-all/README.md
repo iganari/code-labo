@@ -103,5 +103,11 @@ docker rmi codelabo-py-websampleall
 + 停止
 
 ```
+docker stop codelabo-py-websampleall
+```
 
++ 削除
+
+```
+docker rm codelabo-py-websampleall
 ```

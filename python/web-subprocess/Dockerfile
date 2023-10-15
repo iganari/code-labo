@@ -1,7 +1,5 @@
-# https://github.com/JasonHaley/hello-python/tree/master/app
-
-FROM python:3.9.10-alpine3.15
-# https://hub.docker.com/_/python?tab=tags&name=-alpine
+FROM python:3.11.6-alpine3.18
+# https://hub.docker.com/_/python/tags?page=1&name=-alpine
 
 RUN mkdir /app
 WORKDIR /app
