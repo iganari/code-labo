@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: codelab-vue-init
+    build: ./web
+    ports:
+      - 9000:9000
+    privileged: true
+    volumes:
+      - ./content:/app
+    tty: true
+    stdin_open: true
+    # command: /bin/sh
