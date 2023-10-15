@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+
+  code-labo-mysql-large-volume:
+    # build: .
+    image: mysql:8.0.28-debian       # https://hub.docker.com/_/mysql
+    container_name: code-labo-mysql-large-volume
+    command: --default-authentication-plugin=mysql_native_password --secure-file-priv='/' --max_allowed_packet=150M
+    restart: always
+    tty: true
+    environment:
+      MYSQL_ROOT_PASSWORD: 0123456789abcd
+    # ports:
+    #   - "127.0.0.1:13306:3306"
+    volumes:
+      - ./mount:/mnt/
+      # - ./mysql/files/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+    networks:
+      - code-labo
+
+networks:
+  code-labo:
+    driver: bridge
